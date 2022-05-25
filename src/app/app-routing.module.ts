@@ -1,18 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthFormComponent } from './components/auth-form/auth-form.component';
 import { ReposComponent } from './components/repos/repos.component';
 import { AppGuard } from './guards/app.guard';
 import { AppResolver } from './resolvers/app.resolver';
-import {OwnerComponent} from './components/owner/owner.component';
+import { OwnerComponent } from './components/owner/owner.component';
 
 const routes: Routes = [
-  {
-    path: 'auth',
-    component: AuthFormComponent,
-    canActivate: [AppGuard],
-    pathMatch: 'full',
-  },
   {
     path: 'repos',
     component: ReposComponent,
@@ -33,4 +26,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
