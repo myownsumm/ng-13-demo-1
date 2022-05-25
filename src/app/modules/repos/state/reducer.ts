@@ -1,19 +1,34 @@
 import { createReducer, on } from '@ngrx/store';
-import { Repo } from '../repos.typings';
+import { Owner, Repo } from '../repos.typings';
 import { reposFetchedAction } from './actions';
 
 export interface ReposFeatureState {
-  repos: Repo[]; // TODO. fix typings
+  repos: Repo[];
+  owners: Record<number, Owner>;
 }
 
-const authFeatureInitialState: ReposFeatureState = {
+const reposFeatureInitialState: ReposFeatureState = {
   repos: [],
+  owners: {},
 };
 
 export const reposFeatureReducer = createReducer(
-  authFeatureInitialState,
-  on(reposFetchedAction, (state, {payload}) => ({
-    ...state,
-    repos: payload.repos, // TODO. combine results?
-  })),
+  reposFeatureInitialState,
+  on(reposFetchedAction, (state, {payload}) => {
+    const repos = payload.repos;
+    const uniqueOwners = {};
+
+    repos.forEach(repo => {
+      const owner = repo.owner;
+      if (!uniqueOwners[owner.id]) {
+        uniqueOwners[owner.id] = owner;
+      }
+    });
+
+    return {
+      ...state,
+      repos: payload.repos, // TODO. combine results?
+      owners: uniqueOwners
+    };
+  }),
 );

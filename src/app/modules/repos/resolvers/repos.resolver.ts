@@ -17,7 +17,7 @@ export class ReposResolver implements Resolve<Repo[]> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Repo[]> {
-    return this.reposApiService.getRepos('some', 1000).pipe(
+    return this.reposApiService.getRepos('some', 1).pipe(
       tap(repos => {
         this.reposStateService.setReposFetched(repos);
       })

@@ -1,1 +1,12 @@
-repos list
+<mat-list>
+  <mat-list-item *ngFor="let repo of (repos$ | async)">
+    <div class="item">
+      <b>Full Name</b>: <i>{{repo.full_name}}</i>
+    </div>
+
+    <div class="item">
+      <b>Owner login</b>: <div class="mat-button" (click)="goToOwner(repo.owner?.id)">{{repo.owner?.login}}</div>
+    </div>
+  </mat-list-item>
+</mat-list>
+

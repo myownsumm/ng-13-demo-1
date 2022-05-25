@@ -1,0 +1,10 @@
+Owner details:
+
+<div class="owner-details" *ngIf="owner$ | async as owner">
+  login: {{owner.login}};
+  id: {{owner.id}};
+  node_id: {{owner.node_id}};
+  avatar_url: {{owner.avatar_url}};
+  gravatar_id: {{owner.gravatar_id}};
+</div>
+
