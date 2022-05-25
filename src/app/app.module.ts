@@ -12,6 +12,7 @@ import { AppService } from './services/app.service';
 import { ReposComponent } from './components/repos/repos.component';
 import { someReducer } from './store/reducers/app.reducer';
 import {OwnerComponent} from './components/owner/owner.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import {OwnerComponent} from './components/owner/owner.component';
       maxAge: 25,
       logOnly: environment.production,
     }),
+    BrowserAnimationsModule,
   ],
   declarations: [
     AppComponent,
