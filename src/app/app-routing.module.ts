@@ -7,6 +7,10 @@ import { OwnerComponent } from './components/owner/owner.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'auth',
+  },
+  {
     path: 'repos',
     component: ReposComponent,
     canActivate: [AppGuard],
