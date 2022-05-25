@@ -1,11 +1,9 @@
 import {
   FormGroup
 } from '@angular/forms';
-import { createPasswordStrengthValidator } from './password.validator';
 
 export class FormValidators {
   static mustMatch(controlName: string, matchingControlName: string) {
-    console.log('mustMatch');
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
       const matchingControl = formGroup.controls[matchingControlName];
@@ -23,6 +21,4 @@ export class FormValidators {
       return null;
     };
   }
-
-  // static createPasswordStrengthValidator() {}
 }
