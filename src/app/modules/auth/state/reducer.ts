@@ -14,8 +14,8 @@ const authFeatureInitialState: AuthFeatureState = {
 
 export const authFeatureReducer = createReducer(
   authFeatureInitialState,
-  // on(loginAttemptSuccessAction, (state, {payload} : ) => ({
-  //   ...state,
-  //   authUser: action.payload,
-  // })),
+  on(loginAttemptSuccessAction, (state, {payload}) => ({
+    ...state,
+    authUser: payload.authUser,
+  })),
 );
