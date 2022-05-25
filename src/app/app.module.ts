@@ -9,8 +9,8 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './modules/auth/auth.module';
+import { ReposModule } from './modules/repos/repos.module';
 import { AppService } from './services/app.service';
-import { ReposComponent } from './components/repos/repos.component';
 import { someReducer } from './store/reducers/app.reducer';
 import { OwnerComponent } from './components/owner/owner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,11 +28,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    AuthModule
+    AuthModule,
+    ReposModule
   ],
   declarations: [
     AppComponent,
-    ReposComponent,
     OwnerComponent,
   ],
   providers: [AppService],
